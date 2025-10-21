@@ -1,82 +1,65 @@
-# Lightweight React Template for KAVIA
+# Gen AI Usage Monitoring Dashboard (Frontend)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A lightweight React app implementing a monitoring dashboard for internal usage of Gen AI tools (e.g., AWS Bedrock). It includes mock authentication and a mock API for local development.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Ocean Professional theme with modern UI
+- Mock authentication (local only) with session persistence and 8h expiry
+- Dashboard with:
+  - KPI cards: Total Calls, Avg Users, Top Models
+  - SVG sparkline chart (no heavy chart libs)
+  - Top models list with percentage bars
+- Date range filters: Previous Week, Previous Month, and Custom via native date inputs
+- React Router v6 with protected route
 
 ## Getting Started
 
-In the project directory, you can run:
+Install dependencies and run the app:
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
+npm start
 ```
 
-### Components
+App runs on http://localhost:3000.
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+### Login
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+Use one of the mock users:
+- admin@example.com
+- viewer@example.com
 
-## Learn More
+Password must be at least 6 characters (mock validation only).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Environment Variables
 
-### Code Splitting
+Create a `.env` (or copy from `.env.example`) in this folder to configure an external API:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- REACT_APP_API_BASE_URL: Base URL of your backend metrics API
+- REACT_APP_API_TOKEN: Optional bearer token for the API
 
-### Analyzing the Bundle Size
+If `REACT_APP_API_BASE_URL` is not set, the app uses deterministic mock data locally.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Scripts
 
-### Making a Progressive Web App
+- `npm start` – Dev server
+- `npm test` – Tests
+- `npm run build` – Production build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Structure
 
-### Advanced Configuration
+- src/pages/Dashboard.jsx – Dashboard page
+- src/pages/Login.jsx – Login page
+- src/components/* – UI components (Header, KPICard, ModelUsageList, DateRangePicker, Chart, PrivateRoute)
+- src/state/useAuth.js – Auth context and reducer (mock auth)
+- src/state/useDashboardStore.js – Dashboard state (date range and metrics)
+- src/services/api.js – API layer (uses mock when no base URL)
+- src/services/auth.js – Local session persistence for mock auth
+- src/mocks/mockData.js – Deterministic mock metrics generator
+- src/utils/date.js – Simple date utilities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Notes
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This project uses only React and react-router-dom to remain lightweight.
+- No design framework; styles live in `src/App.css` and use CSS variables.
