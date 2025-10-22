@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/gen-ai-usage-monitoring-dashboard-11710-11848/monitoring_dashboard_frontend"
+}
