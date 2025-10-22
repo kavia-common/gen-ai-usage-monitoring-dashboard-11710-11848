@@ -5,3 +5,8 @@ export { default as KPICard } from './KPICard';
 export { default as CallsOverTimeChart } from './CallsOverTimeChart';
 export { default as ModelDistributionChart } from './ModelDistributionChart';
 export { default as RecentActivityTable } from './RecentActivityTable';
+export { default as FiltersBar } from './FiltersBar';
+export { default as CostEstimateChart } from './CostEstimateChart';
+export { default as UserActivityChart } from './UserActivityChart';
+export { default as SuccessErrorChart } from './SuccessErrorChart';
+export { default as TopUsersChart } from './TopUsersChart';

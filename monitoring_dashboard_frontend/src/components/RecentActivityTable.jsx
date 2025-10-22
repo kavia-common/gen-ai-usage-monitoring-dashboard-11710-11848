@@ -27,7 +27,7 @@ export default function RecentActivityTable({ records }) {
           ))}
           {records.length === 0 && (
             <tr>
-              <td style={tdStyle} colSpan={5}>No records in this period.</td>
+              <td style={emptyTdStyle} colSpan={5}>No records match the selected filters.</td>
             </tr>
           )}
         </tbody>
@@ -52,11 +52,16 @@ const thStyle = {
   fontSize: 12,
   color: 'var(--color-text-muted)',
   borderBottom: '1px solid var(--color-border)',
-  background: 'rgba(37, 99, 235, 0.03)',
+  background: 'rgba(37, 99, 235, 0.05)',
 };
 const tdStyle = {
   padding: '12px 16px',
   borderBottom: '1px solid var(--color-border)',
   color: 'var(--color-text)',
   fontSize: 14,
+};
+const emptyTdStyle = {
+  ...tdStyle,
+  textAlign: 'center',
+  color: 'var(--color-text-muted)',
 };
