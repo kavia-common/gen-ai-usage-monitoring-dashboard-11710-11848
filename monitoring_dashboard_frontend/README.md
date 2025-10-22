@@ -1,82 +1,26 @@
-# Lightweight React Template for KAVIA
+# Gen AI Usage Monitoring Dashboard (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This app provides a modern, responsive dashboard themed with Ocean Professional:
+- Header with right-aligned time-range filter (Previous Week, Previous Month, custom via date inputs)
+- KPI cards for Total API Calls, Avg Daily Bedrock Users, Distinct Models Used
+- Charts: Calls Over Time (area) and Model Distribution (bar)
+- Recent activity table
 
-## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+All data comes from a mock data service (`src/services/mockData.js`) filtered by the chosen date range.
 
 ## Getting Started
 
-In the project directory, you can run:
+- npm install
+- npm start
+Open http://localhost:3000
 
-### `npm start`
+## Files of interest
+- src/theme.js — theme variables and applyThemeToDocument()
+- src/components/ — modular components (Header, DateRangePicker, KPISection, charts, table)
+- src/services/mockData.js — mock data and metrics derivation
+- src/utils/date.js — date helpers and range presets
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Future integration
+Placeholders (fetchUsage, subscribeToUpdates) are provided to integrate the monitoring_dashboard_database at a later stage.
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+See also README-DASHBOARD.md for more detail.
